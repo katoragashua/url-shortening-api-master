@@ -20,14 +20,14 @@ html, body {
     width: 100%;
     height: 100%;
     font-size: 18px;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
     color: var(--paragraph)
 }
 
 /* Utilities */
 .container {
-    width: 90vw;
-    max-width: 90vw;
+    width: 80vw;
+    max-width: 80vw;
     margin: 0 auto;
 }
 
@@ -62,15 +62,257 @@ h1, h2, h3, h4, h5 {
 .header, .nav {
     display: flex; 
     justify-content: space-between;
-    border: solid;
     align-items: center;
 }
 
 .header {
     position: relative;
+    padding: 2em 0 0 0;
 }
 
-.nav {
+.logo {
+    z-index: 1000;
+}
+
+hr {
+    display: none
+}
+
+.menu, .sign {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.nav a {
+    color: var(--paragraph);
+}
+
+.sign-up {
+    background-color: var(--cyan);
+    padding: .7em 2.5em;
+    border: none;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+
+/* Main */
+.main, .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* hero */
+
+.hero {
+    width: 100%;
+}
+
+/* Shortener */
+
+.shortener {
+    background-color: var(--dark-violet);
+    width: 100%;
+    border-radius: 10px;
+    transform: translateY(50%);
+    position: relative;
+}
+
+.shortener form {
+    display: flex;
+    background-color: var(--dark-violet);
+    width: 90%;
+    margin: 0 auto;
+}
+
+#shorten, #shorten-btn {
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+#shorten:focus {
+    outline: 1px solid var(--active-link);
+}
+
+#shorten:focus::placeholder {
+    color: var(--active-link);
+}
+
+#shorten-btn {
+    border: none;
+    background-color: var(--cyan);
+    color: white;
+    font-weight: bold;
+} 
+
+label {
+    display: none;
+}
+
+.shorten-bg-desktop,
+.shorten-bg-mobile {
+    position: absolute;
+}
+
+.shorten-bg-mobile {
+    display: none;
+}
+
+/* Stats */
+
+.stats {
+    background-color: var(--gray);
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4em; 
+    padding: 8em 0 5em 0;
+}
+
+.objectives {
+    display: grid;
+    gap: 3em;
+    position: relative;
+    z-index: 100;
+}
+
+.objectives::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 50%;
+    border: solid var(--cyan) 4px;
+    height: 80%;
+    z-index: -1;
+    transform: translateX(-50%)
+}
+
+.objective {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border-radius: 5px;
+    gap: 1em;
+    padding: 0 1em;
+    padding-bottom: 2em;
+    line-height: 1.6em;
+    /* margin-bottom: 3em; */
+}
+
+.objective h4 {
+    margin: -1.5em 0 0;
+}
+
+.objective p {
+    margin: 0 auto;
+}
+
+.objective-img {
+    display: flex;
+    align-items: center;
+    transform: translateY(-50%);
+    background-color: var(--dark-violet);
+    padding: 1em;
+    border-radius: 50%;
+}
+
+.objective-img img {
+    width: 50px
+}
+
+/* Boost */
+
+.boost {
+    background-color: var(--dark-violet);
+    position: relative;
+    padding: 5em 0;
+}
+
+.boost-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+    z-index: 10000;
+    position: relative;
+}
+
+.boost h3 {
+    color: white;
+}
+
+.boost-bg-desktop,
+.boost-bg-mobile {
+    position: absolute;
+    top: 0; 
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.boost-bg-mobile {
+    display: none;
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--very-dark-blue);
+    padding: 3em 0 2.5em 0;
+}
+
+.footer {
+    display: flex;
+}
+
+.footer .logo {
+    margin-bottom: 0;
+}
+
+.footer h4 {
+    color: white;
+    margin-bottom: .5em;
+}
+
+.footer-nav {
+    display: flex;
+    padding: 1.5em 0 2em 0;
+}
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.social-links {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+/* For mobile and Tab */
+@media screen and (min-width: 300px) {
+
+    body {
+        text-align: center;
+    }
+
+    .container {
+    width: 90vw;
+    max-width: 90vw;
+    margin: 0 auto;
+}
+
+    .nav {
     flex-direction: column;
     background-color: var(--);
     position: absolute;
@@ -80,9 +322,13 @@ h1, h2, h3, h4, h5 {
     background-color: var(--dark-violet);
     border-radius: 10px;
     padding: 1em 0;
+    /* display: none; */
+    transform: translateY(-200%);
+    z-index: -100;
 }
 
 hr {
+    display: block;
     width: 80%;
     margin: 0 auto;
     border-bottom: none;
@@ -92,10 +338,18 @@ hr {
 }
 
 .menu, .sign {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em
+    width: 100%;
+}
+
+/* Dropdown Menu */
+
+.drop-down {
+    display: block;
+    z-index: 1000;
+    transform: translateY(0%);
+    transition: 1.2s ease ;
 }
 
 .hamburger {
@@ -104,5 +358,81 @@ hr {
 
 .nav a {
     color: white;
+}
+
+.sign-up {
+    display: inline-block;
+    width: 80%;
+}
+
+/* Main */
+.main {
+    flex-direction: column;
+    gap: 2em;
+}
+
+/* --Hero-- */
+.hero {
+    flex-direction: column;
+    position: relative;
+}
+
+.svg img {
+     left: 10%;
+     width: 150%;
+}
+   
+.shortener {
+    padding: 1.5em .5em;
+}
+
+.shortener form {
+    flex-direction: column;
+    gap: .8em;
+}
+
+#shorten, #shorten-btn {
+    padding: 1em;
+}
+
+.shorten-bg-mobile {
+    display: block;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.shorten-bg-desktop {
+    display: none;
+}
+
+/* Stats */
+
+.objectives {
+    grid-template: repeat(3, 1fr)/1fr;
+    gap: 5em;
+}
+
+
+/* Boost */
+.boost-bg-mobile {
+    display: block;
+    top: 0;
+    right: 0;
+}
+
+.boost-bg-desktop {
+    display: none;
+}
+
+/* Footer */
+.footer {
+    flex-direction: column;
+}
+
+.footer-nav {
+    flex-direction: column;
+    gap: .5em;
+}
 }
 
